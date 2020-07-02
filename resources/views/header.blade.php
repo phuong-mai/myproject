@@ -9,9 +9,14 @@
 				</div>
 				<div class="pull-right auto-width-right">
 					<ul class="top-details menu-beta l-inline">
-						<li><a href="#"><i class="fa fa-user"></i>Tài khoản</a></li>
-						<li><a href="#">Đăng kí</a></li>
-						<li><a href="#">Đăng nhập</a></li>
+						@if(Auth::check())
+						<li><a href="">{{Auth::user()->full_name}}</a></li>
+						<li><a method="post" href="{{route('logout')}}">Đăng xuất</a></li>
+
+						@else
+						<li><a href="{{route('login')}}">Đăng nhập</a></li>
+						<li><a href="{{route('register')}}">Đăng ký</a></li>
+						@endif
 					</ul>
 				</div>
 				<div class="clearfix"></div>

@@ -17,11 +17,32 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('index',[
-    'as'=>'trang-chu',
+    'as'=>'index',
     'uses'=>'HomeController@index'
 ]);
 Route::get('product',[
-    'as'=>'san-pham',
+    'as'=>'product',
     'uses'=>'HomeController@product'
 ]);
+Route::get('login',[
+    'as'=>'login',
+    'uses'=>'LoginController@index'
+]);
+Route::post('login',[
+    'as'=>'login',
+    'uses'=>'LoginController@login'
+]);
+Route::post('logout',[
+    'as'=>'logout',
+    'uses'=>'LoginController@logout'
+]);
+Route::get('register',[
+    'as'=>'register',
+    'uses'=>'UserController@index'
+]);
+Route::post('register',[
+    'as'=>'register',
+    'uses'=>'UserController@register'
+]);
+
 
